@@ -5,6 +5,7 @@ Welcome to Dance Dance Rhythms's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+    develop.rst
     includeme
 
 
