@@ -8,6 +8,9 @@ Welcome to Dance Dance Rhythms's documentation!
         Developer Instructions <source/develop.rst>
         Generating Docs <source/generate_docs.rst>
         Code Style <source/code_style.rst>
+        Modules <source/modules/modules.rst>
+
+
 
 Indices and tables
 ==================
@@ -21,3 +24,5 @@ https://daler.github.io/sphinxdoc-test/includeme.html
 
 Github page found at:
 https://trafire.github.io/DDRhythms/
+
+* :ref:`search`

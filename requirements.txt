@@ -2,3 +2,5 @@ sphinx
 opencv-python
 black
 pre-commit
+sphinxcontrib-apidoc
+sphinx_markdown_tables
