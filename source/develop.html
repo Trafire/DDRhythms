@@ -15,6 +15,7 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="includeme.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -40,6 +41,42 @@
 <li><p>Git</p></li>
 </ul>
 </section>
+<section id="setting-up-the-environment">
+<h2>Setting Up the Environment<a class="headerlink" href="#setting-up-the-environment" title="Permalink to this headline">¶</a></h2>
+<p>The development structure should should be two folders, the main folder DDRhythms contains all the code, while DDRhythms-Docs is used for deploying the docs to github pages.
+If you do not intend to update the Docks then only DDRhythms is required.</p>
+<section id="structure">
+<h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>DDRhythms</dt><dd><ul>
+<li><p>src</p></li>
+<li><p>docs</p></li>
+<li><p>tests</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DDRhythms-Docs</dt><dd><ul>
+<li><p>html</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="steps">
+<h4>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/Trafire/DDRhythms.git DDRhythms
+mkdir DDRhythms-Docs
+<span class="nb">cd</span> DDRhythms-Docs
+git clone https://github.com/Trafire/DDRhythms.git html
+git checkout -b gh-pages remotes/origin/gh-pages
+</pre></div>
+</div>
+</section>
+</section>
+</section>
 </section>
 
 
@@ -59,11 +96,19 @@
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">     Developer Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-requirements">Installation Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-environment">Setting Up the Environment</a></li>
+</ul>
+</li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="includeme.html" title="previous chapter">&lt;no title&gt;</a></li>
   </ul></li>
 </ul>
 </div>
