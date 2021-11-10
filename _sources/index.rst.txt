@@ -4,7 +4,7 @@ Welcome to Dance Dance Rhythms's documentation!
 .. toctree::
    :maxdepth: 2
 
-        ReadMe <source/includeme.rst>
+        ReadMe <docs/source/includeme.rst>
         Developer Instructions <source/develop.rst>
 
 
