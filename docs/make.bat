@@ -27,8 +27,19 @@ if errorlevel 9009 (
 	exit /b 1
 )
 
+if "%1" == "github" (
+    %SPHINXBUILD% -M html %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+    cd  %BUILDDIR%/html
+    git add .
+    git commit -m "rebuilt docs"
+    git push origin gh-pages
+    goto end
+)
+
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 goto end
+
+
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%

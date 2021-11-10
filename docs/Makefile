@@ -28,6 +28,6 @@ latexpdf:
     cp $(PDFBUILDDIR)/latex/*.pdf $(PDF)
     @echo "pdflatex finished; see $(PDF)"
 
-buildandcommithtml: html
-
+github:
+    @make html
     cd $(BUILDDIR)/html; git add . ; git commit -m "rebuilt docs"; git push origin gh-pages

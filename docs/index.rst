@@ -2,10 +2,10 @@ Welcome to Dance Dance Rhythms's documentation!
 ===============================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
         ReadMe <includeme.rst>
-        Developer Instruction <develop.rst>
+        Developer Instructions <develop.rst>
 
 
 
