@@ -6,9 +6,8 @@ Welcome to Dance Dance Rhythms's documentation!
 
         ReadMe <source/includeme.rst>
         Developer Instructions <source/develop.rst>
-
-
-
+        Generating Docs <source/generate_docs.rst>
+        Code Style <source/code_style.rst>
 
 Indices and tables
 ==================

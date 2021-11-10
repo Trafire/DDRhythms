@@ -15,7 +15,8 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="includeme.html" />
+    <link rel="next" title="Generate Docs" href="generate_docs.html" />
+    <link rel="prev" title="Dance Dance Rhythms" href="includeme.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -67,11 +68,25 @@ If you do not intend to update the Docks then only DDRhythms is required.</p>
 </ul>
 <section id="steps">
 <h4>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Set up Repos</p>
+</div></blockquote>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/Trafire/DDRhythms.git DDRhythms
 mkdir DDRhythms-Docs
 <span class="nb">cd</span> DDRhythms-Docs
 git clone https://github.com/Trafire/DDRhythms.git html
 git checkout -b gh-pages remotes/origin/gh-pages
+</pre></div>
+</div>
+</section>
+<section id="set-up-virtual-environment">
+<h4>Set Up Virtual Environment<a class="headerlink" href="#set-up-virtual-environment" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ../DDRhythms
+pip3 install virtualenv
+virtualenv venv
+<span class="nb">source</span> venv/bin/activate
+pip install -r requirements.txt
+pre-commit install
 </pre></div>
 </div>
 </section>
@@ -97,18 +112,22 @@ git checkout -b gh-pages remotes/origin/gh-pages
 
 <h3>Navigation</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">     ReadMe</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">     Developer Instructions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation-requirements">Installation Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setting-up-the-environment">Setting Up the Environment</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="generate_docs.html">     Generating Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_style.html">     Code Style</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="includeme.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Previous: <a href="includeme.html" title="previous chapter">Dance Dance Rhythms</a></li>
+      <li>Next: <a href="generate_docs.html" title="next chapter">Generate Docs</a></li>
   </ul></li>
 </ul>
 </div>

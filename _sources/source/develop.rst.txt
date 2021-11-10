@@ -25,6 +25,8 @@ Structure
 Steps
 _____
 
+    Set up Repos
+
 .. code-block:: bash
 
     git clone https://github.com/Trafire/DDRhythms.git DDRhythms
@@ -34,5 +36,15 @@ _____
     git checkout -b gh-pages remotes/origin/gh-pages
 
 
+Set Up Virtual Environment
+__________________________
 
+.. code-block:: bash
+
+    cd ../DDRhythms
+    pip3 install virtualenv
+    virtualenv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    pre-commit install
 
