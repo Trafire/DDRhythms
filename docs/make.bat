@@ -8,7 +8,9 @@ if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
 set SOURCEDIR=.
-set BUILDDIR=_build
+set BUILDDIR=../../DDRhythms-Docs
+set PDFBUILDDIR=/tmp
+set PDF=../manual.pdf
 
 if "%1" == "" goto help
 
