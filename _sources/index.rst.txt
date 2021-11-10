@@ -5,7 +5,7 @@ Welcome to Dance Dance Rhythms's documentation!
    :maxdepth: 2
 
         ReadMe <includeme.rst>
-        Developer Install Instructions <develop.rst>
+        Developer Instructions <develop.rst>
 
 
 
