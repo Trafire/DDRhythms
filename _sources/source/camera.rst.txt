@@ -1,0 +1,10 @@
+camera package
+==============
+
+Module contents
+---------------
+
+.. automodule:: camera
+   :members:
+   :undoc-members:
+   :show-inheritance:

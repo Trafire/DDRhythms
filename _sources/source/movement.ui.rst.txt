@@ -1,0 +1,10 @@
+movement.ui package
+===================
+
+Module contents
+---------------
+
+.. automodule:: movement.ui
+   :members:
+   :undoc-members:
+   :show-inheritance:

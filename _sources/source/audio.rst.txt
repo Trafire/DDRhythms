@@ -1,0 +1,10 @@
+audio package
+=============
+
+Module contents
+---------------
+
+.. automodule:: audio
+   :members:
+   :undoc-members:
+   :show-inheritance:

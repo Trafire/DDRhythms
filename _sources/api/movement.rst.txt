@@ -1,0 +1,18 @@
+movement package
+================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   movement.ui
+
+Module contents
+---------------
+
+.. automodule:: movement
+   :members:
+   :undoc-members:
+   :show-inheritance:
