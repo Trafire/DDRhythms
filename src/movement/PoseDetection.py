@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from collections import deque
+
 import cv2 as cv
 
 
@@ -27,8 +29,7 @@ class VideoInput:
     }
 
     POSE_PAIRS = [
-        ["Neck", "RShoulder"],
-        ["Neck", "LShoulder"],
+        ["LShoulder", "RShoulder"],
         ["RShoulder", "RElbow"],
         ["RElbow", "RWrist"],
         ["LShoulder", "LElbow"],
@@ -39,9 +40,6 @@ class VideoInput:
         ["Neck", "LHip"],
         ["LHip", "LKnee"],
         ["LKnee", "LAnkle"],
-        ["Neck", "Nose"],
-        ["Nose", "REye"],
-        ["REye", "REar"],
     ]
 
     def __init__(self, input=0, width=200, height=200, scale=200, thr=0.2):
@@ -53,8 +51,11 @@ class VideoInput:
         self.net = cv.dnn.readNetFromTensorflow("src/movement/graph_opt.pb")
         self.cap = cv.VideoCapture(self.input)
         self.calc_timestamps = [0.0]
-
+        self.points_list = deque([], maxlen=1000)
         self._person_height = None
+
+    def distance(self, one, two):
+        pass
 
     @staticmethod
     def get_body_part_location(points: list, part: str) -> None:
@@ -72,10 +73,11 @@ class VideoInput:
         assert index is not None
         return points[index]
 
-    def person_height(self, points):
+    def person_height(self):
+
         if self._person_height is None:
             ## olivias code
-            pass
+            points = self.points_list[-1]
             # self._person_height = value
         return self._person_height
 
@@ -84,12 +86,13 @@ class VideoInput:
         knee = self.get_body_part_location(points, "LKnee")
 
     def shoulder_width(self, points):
-        pass
+        left_shoulder = self.get_body_part_location(points, "LAnkle")
 
     def leg_length(self, points):
         pass
 
-    def left_foot_position(self, offset):
+    def left_foot_position(self, offset=-1):
+
         pass
 
     def right_foot_position(self, offset):
@@ -150,6 +153,7 @@ class VideoInput:
                 y = (frameHeight * point[1]) / out.shape[2]
                 # Add a point if it's confidence is higher than threshold.
                 points.append((int(x), int(y)) if conf > self.thr else None)
+            self.points_list.append(points)
             for pair in VideoInput.POSE_PAIRS:
                 partFrom = pair[0]
                 partTo = pair[1]
