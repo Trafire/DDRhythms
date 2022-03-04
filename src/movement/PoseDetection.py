@@ -29,7 +29,8 @@ class VideoInput:
     }
 
     POSE_PAIRS = [
-        ["LShoulder", "RShoulder"],
+        ["Neck", "RShoulder"],
+        ["Neck", "LShoulder"],
         ["RShoulder", "RElbow"],
         ["RElbow", "RWrist"],
         ["LShoulder", "LElbow"],
@@ -40,6 +41,9 @@ class VideoInput:
         ["Neck", "LHip"],
         ["LHip", "LKnee"],
         ["LKnee", "LAnkle"],
+        ["Neck", "Nose"],
+        ["Nose", "REye"],
+        ["REye", "REar"],
     ]
 
     def __init__(self, input=0, width=200, height=200, scale=200, thr=0.2):
@@ -73,17 +77,12 @@ class VideoInput:
         assert index is not None
         return points[index]
 
-    def person_height(self):
-
+    def get_height(self, points):
         if self._person_height is None:
-            ## olivias code
-            points = self.points_list[-1]
-            # self._person_height = value
+            LAnkle = self.get_body_part_location(points, "LAnkle")
+            LShoulder = self.get_body_part_location(points, "LShoulder")
+            self._person_height = LAnkle, LShoulder
         return self._person_height
-
-    def height(self, points):
-        ankle = self.get_body_part_location(points, "LAnkle")
-        knee = self.get_body_part_location(points, "LKnee")
 
     def shoulder_width(self, points):
         left_shoulder = self.get_body_part_location(points, "LAnkle")
@@ -154,6 +153,11 @@ class VideoInput:
                 # Add a point if it's confidence is higher than threshold.
                 points.append((int(x), int(y)) if conf > self.thr else None)
             self.points_list.append(points)
+
+            height = self.get_height(points)
+            if height != None:
+                print(height)
+
             for pair in VideoInput.POSE_PAIRS:
                 partFrom = pair[0]
                 partTo = pair[1]
@@ -188,5 +192,5 @@ class VideoInput:
             cv.imshow("OpenPose using OpenCV", frame)
 
 
-v = VideoInput(r"data\test_video.mp4")
+# v = VideoInput(r"data\test_video.mp4")
 v.get()
