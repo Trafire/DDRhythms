@@ -64,10 +64,10 @@ class VideoInput:
         ["LEye", "LEar"],
     ]
 
-    def __init__(self, input, width=200, height=200, scale=200, thr=0.2):
+    def __init__(self, input=0, width=200, height=200, scale=200, thr=0.2):
         self.thr = thr
         self.input = input
-        self.in_width = width / 2
+        self.in_width = width
         self.in_height = height
         self.scale = scale
         self.net = cv.dnn.readNetFromTensorflow("src/movement/graph_opt.pb")
@@ -117,6 +117,10 @@ class VideoInput:
                 y = (frameHeight * point[1]) / out.shape[2]
                 # Add a point if it's confidence is higher than threshold.
                 points.append((int(x), int(y)) if conf > self.thr else None)
+
+            print(points)
+            height = self.get_height(points)
+
             for pair in VideoInput.POSE_PAIRS:
                 partFrom = pair[0]
                 partTo = pair[1]
@@ -152,7 +156,7 @@ class VideoInput:
             cv.imshow("OpenPose using OpenCV", frame)
 
 
-v = VideoInput(r"C:\Users\Antoine\PycharmProjects\DDRhythms\data\test_video.mp4")
+v = VideoInput("data/test_video.mp4")
 v.get()
 
 #
