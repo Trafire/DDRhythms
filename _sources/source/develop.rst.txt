@@ -11,7 +11,7 @@ Setting Up the Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The development structure should should be two folders, the main folder DDRhythms contains all the code, while DDRhythms-Docs is used for deploying the docs to github pages.
-If you do not intend to update the Docks then only DDRhythms is required.
+If you do not intend to update the Docs then only DDRhythms is required.
 
 Structure
 ----------
