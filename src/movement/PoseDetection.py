@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import math
 from collections import deque
 
 import cv2 as cv
@@ -58,36 +59,51 @@ class VideoInput:
         self.points_list = deque([], maxlen=1000)
         self._person_height = None
 
-    def distance(self, one, two):
-        pass
+    def distance(self, part_one: str, part_two: str, offset=1) -> int:
+        a = self.get_body_part_location(part_one, offset)
+        b = self.get_body_part_location(part_two, offset)
+        if a and b:
+            return math.dist(a, b)
+        return None
 
-    @staticmethod
-    def get_body_part_location(points: list, part: str) -> None:
+    def get_points(self, offset):
+        print(len(self.points_list))
+        if len(self.points_list) > abs(offset):
+            return self.points_list[offset]
+        else:
+            return [(0, 0)] * 19
+
+    def get_body_part_location(self, part: str, offset=-1) -> None:
         """Returns value of location of body part
         Parameters
         ----------
-        points: List of Intergers
+
         part: String in
+        offset: index of points to use. [-1] is latest
 
         Returns float
         -------
         """
+
         index = VideoInput.BODY_PARTS.get(part, None)
         # error if body part is not in Body Part List
         assert index is not None
-        return points[index]
+        return self.get_points(offset)[index]
 
-    def get_height(self, points):
+    def get_height(self):
         if self._person_height is None:
-            LAnkle = self.get_body_part_location(points, "LAnkle")
-            LShoulder = self.get_body_part_location(points, "LShoulder")
-            self._person_height = LAnkle, LShoulder
+            #     # LAnkle = self.get_body_part_location("LAnkle")
+            #     # LShoulder = self.get_body_part_location("LShoulder")
+            height = self.distance("LAnkle", "LShoulder")
+            if height > 0:
+                self._person_height = height
         return self._person_height
 
-    def shoulder_width(self, points):
-        left_shoulder = self.get_body_part_location(points, "LAnkle")
+    def shoulder_width(self):
 
-    def leg_length(self, points):
+        return self.distance("LShoulder", "rShoulder")
+
+    def leg_length(self, offset):
         pass
 
     def left_foot_position(self, offset=-1):
@@ -154,9 +170,10 @@ class VideoInput:
                 points.append((int(x), int(y)) if conf > self.thr else None)
             self.points_list.append(points)
 
-            height = self.get_height(points)
+            height = self.get_height()
+            shoulder_width = self.shoulder_width()
             if height != None:
-                print(height)
+                print(shoulder_width)
 
             for pair in VideoInput.POSE_PAIRS:
                 partFrom = pair[0]
@@ -192,5 +209,5 @@ class VideoInput:
             cv.imshow("OpenPose using OpenCV", frame)
 
 
-# v = VideoInput(r"data\test_video.mp4")
+v = VideoInput(r"data\test_video.mp4")
 v.get()
