@@ -66,6 +66,7 @@ In the Docs repo
     - check to make sure you’re on the gh-pages branch
     - commit
     - push
+    - enjoy
 
 
 
