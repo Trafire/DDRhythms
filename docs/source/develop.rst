@@ -62,7 +62,7 @@ In the main repo
     - change to the docs repo
 
 In the Docs repo
------------------
+----------------
     - change to the docs repo (make sure you’re in the html dir)
     - check to make sure you’re on the gh-pages branch
     - commit
