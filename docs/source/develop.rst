@@ -35,7 +35,6 @@ _____
     git clone https://github.com/Trafire/DDRhythms.git html
     git checkout -b gh-pages remotes/origin/gh-pages
 
-
 Set Up Virtual Environment
 __________________________
 
@@ -67,6 +66,7 @@ In the Docs repo
     - check to make sure you’re on the gh-pages branch
     - commit
     - push
+    - enjoy
 
 
 
