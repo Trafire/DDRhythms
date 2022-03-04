@@ -184,5 +184,5 @@ class VideoInput:
             cv.imshow("OpenPose using OpenCV", frame)
 
 
-v = VideoInput(r"C:\Users\Antoine\PycharmProjects\DDRhythms\data\test_video.mp4")
+v = VideoInput(r"data\test_video.mp4")
 v.get()
