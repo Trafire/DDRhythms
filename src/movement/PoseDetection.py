@@ -80,8 +80,8 @@ class VideoInput:
         return self._person_height
 
     def height(self, points):
-        ankle = self.get_part_value(points, "LAnkle")
-        knee = self.get_part_value(points, "LKnee")
+        ankle = self.get_body_part_location(points, "LAnkle")
+        knee = self.get_body_part_location(points, "LKnee")
 
     def shoulder_width(self, points):
         pass
